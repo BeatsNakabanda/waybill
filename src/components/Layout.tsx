@@ -1,135 +1,178 @@
 import React from 'react';
 import { makeStyles, styled } from '@mui/styles';
 import {
-    Toolbar, Divider, List, ListItem, AppBar, Drawer, Typography, Box, CssBaseline,
-    ListItemText, IconButton, Grid,  InputBase } from '@mui/material';
+    Toolbar, AppBar, Drawer, Typography, Box, CssBaseline,
+    IconButton, Grid, InputBase
+} from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
+import profile_pic from '../assets/baby.jpg'
+import Dashboard from '../modules/dashboard/Dashboard';
+import XSideBarMenu from './XSideBarMenu';
 
-// const Search = styled('div')(() => ({
-//     position: 'relative',
-//     borderRadius: '5px',
-//     backgroundColor: '',
-//     '&:hover': {
-//       backgroundColor: alpha(theme.palette.common.white, 0.25),
-//     },
-//     marginRight: theme.spacing(2),
-//     marginLeft: 0,
-//     width: '100%',
-//     [theme.breakpoints.up('sm')]: {
-//       marginLeft: theme.spacing(3),
-//       width: 'auto',
-//     },
-//   }));
-  
-//   const SearchIconWrapper = styled('div')(({ theme }) => ({
-//     padding: theme.spacing(0, 2),
-//     height: '100%',
-//     position: 'absolute',
-//     pointerEvents: 'none',
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   }));
-  
-//   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//     color: 'inherit',
-//     '& .MuiInputBase-input': {
-//       padding: theme.spacing(1, 1, 1, 0),
-//       vertical padding + font size from searchIcon
-//       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//       transition: theme.transitions.create('width'),
-//       width: '100%',
-//       [theme.breakpoints.up('md')]: {
-//         width: '20ch',
-//       },
-//     },
-//   }));
+const Search = styled('div')(() => ({
+    position: 'relative',
+    borderRadius: '5px',
+    backgroundColor: '#f4f5fb',
+    '&:hover': {
+        //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    // marginRight: '16px',
+    // marginRight: theme.spacing(5),
+    marginLeft: 0,
+    width: '100%',
+    // [theme.breakpoints.up('sm')]: {
+    //     marginLeft: theme.spacing(3),
+    //     width: 'auto',
+    // },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    // padding: theme.spacing(0, 2),
+    padding: '8px',
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#999999'
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        //   padding: theme.spacing(1, 1, 1, 0),
+        paddingLeft: '32px',
+        //   vertical padding + font size from searchIcon
+        //   paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        //   transition: theme.transitions.create('width'),
+        width: '100%',
+        //   [theme.breakpoints.up('md')]: {
+        //     width: '20ch',
+        //   },
+    },
+}));
 
 const useStyles = makeStyles({
     root: {
-
-    },
-    title: {
-        paddingTop: "5px",
-        fontWeight: "bold",
-        fontSize: "x-large"
+        display: 'flex',
+        '& .css-g3v5db-MuiPaper-root-MuiDrawer-paper': {
+            borderRight: 'none',
+        },
+        '& .css-tapivm-MuiPaper-root-MuiDrawer-paper': {
+            borderRight: 'none',
+        },
+        '& .css-17lngqm-MuiListItem-root': {
+           paddingTop: '0px' 
+        }, 
+        '& .css-12hmn4b-MuiButtonBase-root-MuiListItem-root': {
+            '&:hover': {
+                color: '#0044FF',
+                backgroundColor: '#f4f5fb',
+                borderRight: '5px solid #0044FF',
+            },
+        },
+        '& .css-1krnuft-MuiTypography-root':  {
+            '&:hover': {
+                color: '#0044FF'
+            }
+        },
+        '& .css-h4y409-MuiList-root': {
+            paddingTop: '0px',
+            paddingBottom: '0px'
+        },
+        '& .css-1ttrnsm-MuiTypography-root': {
+            color: '#878792',
+            '&:hover': {
+                color: '#0044FF'
+            }
+        }
     },
     profile: {
-        float: "right",
-        display: "flex",
-        alignItems: "center",
+        float: 'right',
+        display: 'flex',
+        alignItems: 'center',
     },
     profileImage: {
-        paddingLeft: "0px",
-        borderRadius: "50%"
+        paddingLeft: '0px',
+        borderRadius: '50%'
     },
     link: {
-        paddingRight: "20px",
-        color: "#3a5f79",
-        fontSize: "larger"
+        paddingRight: '20px',
+        color: '#3a5f79',
+        fontSize: 'larger'
+    },
+    icon: {
+        marginRight: '20px'
     },
     name: {
-        paddingLeft: "20px"
+        fontStyle: 'bold',
+    },
+    role: {
+        fontSize: '12px',
+        color: '#878792'
+    },
+    drawerDiv: {
+        borderRight: '0px'
+    },
+    logo: {
+
     }
 });
 
 const drawerWidth = 240;
-
-interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window?: () => Window;
-}
-
 const drawer = (
-    <div>
-        <Toolbar />
-        <Divider />
-        <List>
-            {['Overview', 'Shipments', 'Tracking', 'Driving', 'Statistics', 'Wallet'].map((text, index) => (
-                <ListItem button key={text}>
-                    {/* <h2>Hello2</h2> */}
-                    <ListItemText primary={text} />
-                </ListItem>
-            ))}
-        </List>
-        <Divider />
-        <List>
-            {['Help & Support', 'Logout'].map((text, index) => (
-                <ListItem button key={text}>
-                    {/* <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <InboxIcon />}
-                </ListItemIcon> */}
-                    <ListItemText primary={text} />
-                </ListItem>
-            ))}
-        </List>
-    </div>
+    <XSideBarMenu />
+    // <div>
+    //     {/* <Toolbar /> */}
+    //     <List>
+    //         <ListItem>
+    //         <h1><i>waybill</i></h1>
+    //         </ListItem>
+    //         </List>
+    //     <List>
+    //         {['Overview', 'Shipments', 'Tracking', 'Driving', 'Statistics', 'Wallet'].map((text, index) => (
+    //             <ListItem button key={text}>
+    //                 <ListItemText primary={text} />
+    //             </ListItem>
+    //         ))}
+    //     </List>
+    //     <Divider />
+    //     <List>
+    //         {['Help & Support', 'Logout'].map((text, index) => (
+    //             <ListItem button key={text}>
+    //                 {/* <ListItemIcon>
+    //               {index % 2 === 0 ? <InboxIcon /> : <InboxIcon />}
+    //             </ListItemIcon> */}
+    //                 <ListItemText primary={text} />
+    //             </ListItem>
+    //         ))}
+    //     </List>
+    // </div>
 );
 
 function Layout(props: any) {
     const classes = useStyles();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const container = window !== undefined ? () => window().document.body : undefined;
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box className={classes.root}>
             <CssBaseline />
             <AppBar
                 position="fixed"
                 sx={{
+                    backgroundColor: "#fff",
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
+                elevation={0}
             >
                 <Toolbar>
                     <IconButton
@@ -142,9 +185,9 @@ function Layout(props: any) {
                         <Menu />
                     </IconButton>
                     <Grid container>
-                        <Grid item className={classes.title}>
-                        <InputBase placeholder="Search" />
-                            {/* <Search>
+                        <Grid item>
+                            {/* <InputBase placeholder="Search" /> */}
+                            <Search>
                                 <SearchIconWrapper>
                                     <SearchIcon />
                                 </SearchIconWrapper>
@@ -152,25 +195,23 @@ function Layout(props: any) {
                                     placeholder="Search…"
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
-                            </Search> */}
-
+                            </Search>
                         </Grid>
                         <Grid item sm></Grid>
                         <Grid item className={classes.profile}>
-                            {/* <Link className={classes.link} to="/">
-                                <NotificationsIcon />
-                            </Link>
-                            <img src={profile_pic} alt="logo" width="40dp" height="40dp" className={classes.profileImage} /> */}
-                            <p className={classes.name}>
-                                <b>Beatrice Nakabanda</b>
-                            </p>
+                            <NotificationsIcon className={classes.icon} />
+                            <img src={profile_pic} alt="logo" width="40dp" height="40dp" className={classes.profileImage} />
+                            <div style={{ paddingLeft: "20px", display: "block" }}>
+                                <Typography className={classes.name}>Beatrice Nakabanda</Typography>
+                                <Typography variant="body2">Admin</Typography>
+                            </div>
                         </Grid>
                     </Grid>
                 </Toolbar>
             </AppBar>
             <Box
                 component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, backgroundColor: '' }}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -196,30 +237,16 @@ function Layout(props: any) {
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                     open
+                    elevation={0}
                 >
                     {drawer}
                 </Drawer>
             </Box>
             <Box
                 component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+                sx={{ flexGrow: 1, pt: 0, pl: 3, pr: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
-                <Toolbar />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-                    sapien faucibus et molestie ac.
-                </Typography>
-
+                <Dashboard />
             </Box>
         </Box>
     )

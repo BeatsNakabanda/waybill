@@ -7,8 +7,9 @@ const palette={
         main: '#0044FF'
     },
     text: {
-        primary: '#00071a',
-        secondary: '#e9e9fb'
+        primary: '#293370',
+        secondary: '#878792'
+        // secondary: '#4d4d4d'
     },
     background: {
         default: '#f4f5fb'
