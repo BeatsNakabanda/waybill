@@ -14,6 +14,7 @@ import XSideBarMenu from './XSideBarMenu';
 const Search = styled('div')(() => ({
     position: 'relative',
     borderRadius: '5px',
+    marginTop: '5px',
     backgroundColor: '#f4f5fb',
     '&:hover': {
         //   backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -65,30 +66,35 @@ const useStyles = makeStyles({
             borderRight: 'none',
         },
         '& .css-17lngqm-MuiListItem-root': {
-           paddingTop: '0px' 
-        }, 
+            paddingTop: '0px'
+        },
+        '& .css-1t29gy6-MuiToolbar-root': {
+            height: '10%'
+        },
         '& .css-12hmn4b-MuiButtonBase-root-MuiListItem-root': {
             '&:hover': {
                 color: '#0044FF',
                 backgroundColor: '#f4f5fb',
                 borderRight: '5px solid #0044FF',
+                '& .css-i4bv87-MuiSvgIcon-root': {
+                    color: '#0044FF',
+                },
+                '& .css-1krnuft-MuiTypography-root': {
+                    color: '#0044FF'
+                },
             },
         },
-        '& .css-1krnuft-MuiTypography-root':  {
-            '&:hover': {
-                color: '#0044FF'
-            }
+        '.css-yz9k0d-MuiInputBase-input': {
+            alignItems: 'center'
+        },
+        '& .css-cveggr-MuiListItemIcon-root': {
+            minWidth: '10%',
+            marginRight: '16px',
         },
         '& .css-h4y409-MuiList-root': {
             paddingTop: '0px',
             paddingBottom: '0px'
         },
-        '& .css-1ttrnsm-MuiTypography-root': {
-            color: '#878792',
-            '&:hover': {
-                color: '#0044FF'
-            }
-        }
     },
     profile: {
         float: 'right',
@@ -125,32 +131,6 @@ const useStyles = makeStyles({
 const drawerWidth = 240;
 const drawer = (
     <XSideBarMenu />
-    // <div>
-    //     {/* <Toolbar /> */}
-    //     <List>
-    //         <ListItem>
-    //         <h1><i>waybill</i></h1>
-    //         </ListItem>
-    //         </List>
-    //     <List>
-    //         {['Overview', 'Shipments', 'Tracking', 'Driving', 'Statistics', 'Wallet'].map((text, index) => (
-    //             <ListItem button key={text}>
-    //                 <ListItemText primary={text} />
-    //             </ListItem>
-    //         ))}
-    //     </List>
-    //     <Divider />
-    //     <List>
-    //         {['Help & Support', 'Logout'].map((text, index) => (
-    //             <ListItem button key={text}>
-    //                 {/* <ListItemIcon>
-    //               {index % 2 === 0 ? <InboxIcon /> : <InboxIcon />}
-    //             </ListItemIcon> */}
-    //                 <ListItemText primary={text} />
-    //             </ListItem>
-    //         ))}
-    //     </List>
-    // </div>
 );
 
 function Layout(props: any) {
