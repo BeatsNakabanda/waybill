@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
-import { red } from "@mui/material/colors";
 import { makeStyles } from "@mui/styles";
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 
@@ -12,6 +11,7 @@ const useStyles = makeStyles({
         display: 'flex',
         backgroundColor: '#FFF',
         marginRight: '10px',
+        marginTop: '20px',
         cursor: 'pointer',
         '& .css-46bh2p-MuiCardContent-root:last-child': {
             padding: '0px'
@@ -34,13 +34,13 @@ const useStyles = makeStyles({
         color: 'blue'
     },
     icon2: {
-        color: 'red'
+        color: 'orange'
     },
     icon3: {
         color: 'green'
     },
     icon4: {
-        color: 'blue'
+        color: 'red'
     },
 
 })
@@ -48,8 +48,7 @@ const useStyles = makeStyles({
 interface IProps {
     id: number
     title: string
-    total: number,
-    color: string
+    total: number
 }
 
 let data: IProps[] = [
@@ -57,25 +56,21 @@ let data: IProps[] = [
         id: 1,
         title: "Total Shipments",
         total: 456,
-        color: 'blue'
     },
     {
         id: 2,
         title: "Being Delivered",
         total: 300,
-        color: 'orange'
     },
     {
         id: 3,
         title: "Delivered",
         total: 100,
-        color: 'green'
     },
     {
         id: 4,
         title: "Failed",
         total: 50,
-        color: 'red'
     },
 
 ]
@@ -85,27 +80,25 @@ const XCard = () => {
 
     const addIcon = (id: number) => {
         switch (id) {
-            case 0:
-                return <ShoppingBasketOutlinedIcon />
             case 1:
-                return <ShoppingBasketOutlinedIcon   />
+                return <Avatar sx={{ bgcolor: '#e6f0ff' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon1} /></Avatar>
             case 2:
-                return <ShoppingBasketOutlinedIcon   />
+                return <Avatar sx={{ bgcolor: '#fff5e6' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon2} /></Avatar>
             case 3:
-                return <ShoppingBasketOutlinedIcon  />
+                return <Avatar sx={{ bgcolor: '#ecf8f2' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon3} /></Avatar>
+            case 4:
+                return <Avatar sx={{ bgcolor: '#ffe6e6' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon4} /></Avatar>
             default:
-                return <ShoppingBasketOutlinedIcon   />
+                return <Avatar sx={{ bgcolor: '#cce0ff' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon1} /></Avatar>
         }
     }
 
     return <>
         {
             data.map(data => (
-                <Card className={classes.root} sx={{ maxWidth: 345, borderRadius: '10px' }} elevation={0}>
+                <Card className={classes.root} sx={{ width: '22%', borderRadius: '10px'}} elevation={0}>
                     <Box className={classes.media}>
-                        <Avatar sx={{ bgcolor: data.color }} aria-label="recipe">
                             {addIcon(data.id)}
-                        </Avatar>
                     </Box>
                     <Box className={classes.mainContent}>
                         <CardContent >

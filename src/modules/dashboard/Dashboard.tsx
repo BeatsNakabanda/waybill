@@ -6,7 +6,7 @@ import XSelectForm from "../../components/XSelectForm";
 
 const useStyles = makeStyles({
     root: {
-        
+
     },
     cards: {
         display: 'flex',
@@ -16,19 +16,20 @@ const useStyles = makeStyles({
     },
     title: {
         color: '#293370',
+        marginTop: '20px'
     },
     overview: {
         display: 'flex',
+        marginTop: '20px'
     },
     form: {
-        backgroundColor: 'red',
         paddingLeft: '16px'
     }
 })
 
 const Dashboard = () => {
     const classes = useStyles()
-   
+
     return (
         <div className={classes.root}>
             <Toolbar />
@@ -36,11 +37,13 @@ const Dashboard = () => {
                 <h2 className={classes.title}>Overview</h2>
                 <XSelectForm className={classes.form} />
             </Box>
-
             <Box className={classes.cards}>
                 <XCard />
             </Box>
-            <h2 className={classes.title}>Recent Shipments</h2>
+            <Box className={classes.title}>
+                <h2>Recent Shipments</h2>
+            </Box>
+
 
         </div>
     )

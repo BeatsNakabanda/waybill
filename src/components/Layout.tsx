@@ -72,6 +72,7 @@ const useStyles = makeStyles({
             height: '10%'
         },
         '& .css-12hmn4b-MuiButtonBase-root-MuiListItem-root': {
+            marginTop: '10px',
             '&:hover': {
                 color: '#0044FF',
                 backgroundColor: '#f4f5fb',

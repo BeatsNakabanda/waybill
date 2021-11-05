@@ -18,11 +18,10 @@ const useStyles = makeStyles({
     header: {
         fontSize: '30px',
         fontStyle: 'italic',
-        
     },
     icon: {
         minWidth: '10%'
-    }
+    },
 });
 const XSideBarMenu = () => {
     const classes = useStyles();
@@ -41,7 +40,6 @@ const XSideBarMenu = () => {
                 return <ShowChartOutlinedIcon />
             case 5:
                 return <AccountBalanceWalletOutlinedIcon />
-
             default:
                 return <AccountBalanceWalletOutlinedIcon />
         }
@@ -65,7 +63,6 @@ const XSideBarMenu = () => {
                         </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
-
                 ))}
             </List>
             <Divider />
