@@ -13,7 +13,7 @@ const XSelectForm = (props: any) => {
     };
 
     return (
-        <Box sx={{ minWidth: 120, ml: 3 }}>
+        <Box sx={{ minWidth: 120, ml: 3, bgcolor: '#fff', borderRadius: '5px', }}>
             <FormControl fullWidth variant="standard">
                 <InputLabel id="demo-simple-select-label">This Month</InputLabel>
                 <Select
