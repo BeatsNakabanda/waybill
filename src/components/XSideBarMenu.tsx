@@ -23,20 +23,6 @@ const useStyles = makeStyles({
     icon: {
         minWidth: '10%',
     },
-    listItem: {
-        '&:hover': {
-            color: '#0044FF',
-            backgroundColor: '#f4f5fb',
-            borderRight: '5px solid #0044FF',
-            '& .css-i4bv87-MuiSvgIcon-root': {
-                color: '#0044FF',
-            },
-            '& .css-1krnuft-MuiTypography-root': {
-                color: '#0044FF'
-            },
-        },
-
-    }
 });
 const XSideBarMenu = () => {
     const classes = useStyles();

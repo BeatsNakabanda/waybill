@@ -18,13 +18,11 @@ const useStyles = makeStyles({
         color: '#293370',
         marginTop: '20px'
     },
-    overview: {
+    section: {
         display: 'flex',
         marginTop: '20px'
     },
-    form: {
-        paddingLeft: '16px'
-    }
+    
 })
 
 const Dashboard = () => {
@@ -33,15 +31,16 @@ const Dashboard = () => {
     return (
         <div className={classes.root}>
             <Toolbar />
-            <Box className={classes.overview}>
+            <Box className={classes.section}>
                 <h2 className={classes.title}>Overview</h2>
-                <XSelectForm className={classes.form} />
+                <XSelectForm />
             </Box>
             <Box className={classes.cards}>
                 <XCard />
             </Box>
-            <Box className={classes.title}>
-                <h2>Recent Shipments</h2>
+            <Box className={classes.section}>
+                <h2 className={classes.title}>Recent Shipments</h2>
+                <XSelectForm />
             </Box>
 
 

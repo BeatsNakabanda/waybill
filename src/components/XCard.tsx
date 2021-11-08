@@ -13,7 +13,7 @@ const useStyles = makeStyles({
         marginRight: '10px',
         marginTop: '20px',
         cursor: 'pointer',
-        '& .css-46bh2p-MuiCardContent-root:last-child': {
+        '& .MuiCardContent-root:last-child': {
             padding: '0px'
         },
         '& .makeStyles-media-22': {
