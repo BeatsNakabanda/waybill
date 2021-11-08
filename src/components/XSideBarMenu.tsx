@@ -1,4 +1,5 @@
 import List from "@mui/material/List";
+import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
@@ -20,8 +21,22 @@ const useStyles = makeStyles({
         fontStyle: 'italic',
     },
     icon: {
-        minWidth: '10%'
+        minWidth: '10%',
     },
+    listItem: {
+        '&:hover': {
+            color: '#0044FF',
+            backgroundColor: '#f4f5fb',
+            borderRight: '5px solid #0044FF',
+            '& .css-i4bv87-MuiSvgIcon-root': {
+                color: '#0044FF',
+            },
+            '& .css-1krnuft-MuiTypography-root': {
+                color: '#0044FF'
+            },
+        },
+
+    }
 });
 const XSideBarMenu = () => {
     const classes = useStyles();
@@ -57,7 +72,7 @@ const XSideBarMenu = () => {
             </List> */}
             <List>
                 {['Overview', 'Shipments', 'Tracking', 'Drivers', 'Statistics', 'Wallet'].map((text, index) => (
-                    <ListItem button key={text}>
+                    <ListItem button key={text} >
                         <ListItemIcon className={classes.icon} >
                             {addIcon(index)}
                         </ListItemIcon>

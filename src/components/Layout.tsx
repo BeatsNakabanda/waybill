@@ -59,43 +59,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const useStyles = makeStyles({
     root: {
         display: 'flex',
-        '& .css-g3v5db-MuiPaper-root-MuiDrawer-paper': {
-            borderRight: 'none',
-        },
-        '& .css-tapivm-MuiPaper-root-MuiDrawer-paper': {
-            borderRight: 'none',
-        },
-        '& .css-17lngqm-MuiListItem-root': {
-            paddingTop: '0px'
-        },
-        '& .css-1t29gy6-MuiToolbar-root': {
-            height: '10%'
-        },
-        '& .css-12hmn4b-MuiButtonBase-root-MuiListItem-root': {
+        '& .MuiListItem-root': {
             marginTop: '10px',
             '&:hover': {
                 color: '#0044FF',
                 backgroundColor: '#f4f5fb',
                 borderRight: '5px solid #0044FF',
-                '& .css-i4bv87-MuiSvgIcon-root': {
+                '& .MuiSvgIcon-root': {
                     color: '#0044FF',
                 },
-                '& .css-1krnuft-MuiTypography-root': {
+                '& .MuiTypography-root': {
                     color: '#0044FF'
-                },
+                }
             },
         },
-        '.css-yz9k0d-MuiInputBase-input': {
-            alignItems: 'center'
-        },
-        '& .css-cveggr-MuiListItemIcon-root': {
-            minWidth: '10%',
-            marginRight: '16px',
-        },
-        '& .css-h4y409-MuiList-root': {
-            paddingTop: '0px',
-            paddingBottom: '0px'
-        },
+        '& .MuiDrawer-paper': {
+            borderRight: 'none',
+        }
     },
     profile: {
         float: 'right',
