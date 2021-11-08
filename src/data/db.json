@@ -1,0 +1,12 @@
+{
+    "shipments": [
+        {
+            "id": 1,
+            "trackingId": "#15262ADC",
+            "date": "23.6.2021",
+            "sender": "James Moses",
+            "origin": "Avenue, Imo",
+            "destination": "Westbrom"
+        }
+    ]
+}

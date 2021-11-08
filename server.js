@@ -5,8 +5,9 @@ const router = jsonServer.router("src/data/db.json");
 const middlewares = jsonServer.defaults({ static: "./build"});
 const port = process.env.PORT || 3000;
 
-server.use(favicon(__dirname + '/public/favicon.png'))
+server.use(favicon(__dirname + '/public/favicon.ico'))
 server.use(middlewares);
 server.use(router);
 
 server.listen(port);
+
