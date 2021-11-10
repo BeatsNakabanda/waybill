@@ -2,7 +2,6 @@ import FormControl from "@mui/material/FormControl";
 import { makeStyles, styled } from '@mui/styles';
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import Box from "@mui/material/Box";
 import { useState } from "react";
 
 const useStyles = makeStyles({
@@ -32,7 +31,7 @@ const XSelectForm = () => {
                 inputProps={{ 'aria-label': 'Without label' }}
             >
                 <MenuItem value="">
-                    <em>None</em>
+                    None
                 </MenuItem>
                 <MenuItem value={10}>This week</MenuItem>
                 <MenuItem value={20}>Last week</MenuItem>

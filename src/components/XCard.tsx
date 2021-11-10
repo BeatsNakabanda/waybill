@@ -34,13 +34,13 @@ const useStyles = makeStyles({
         color: 'blue'
     },
     icon2: {
-        color: 'orange'
+        color: '#e68a00'
     },
     icon3: {
-        color: 'green'
+        color: '#006622'
     },
     icon4: {
-        color: 'red'
+        color: '#b30000'
     },
 
 })

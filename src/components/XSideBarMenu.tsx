@@ -1,5 +1,4 @@
 import List from "@mui/material/List";
-import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
@@ -51,11 +50,6 @@ const XSideBarMenu = () => {
             <Toolbar >
             <h1 className={classes.header}>waybill</h1>
             </Toolbar>
-            {/* <List>
-                <ListItem>
-                    <h1 className={classes.header}>waybill</h1>
-                </ListItem>
-            </List> */}
             <List>
                 {['Overview', 'Shipments', 'Tracking', 'Drivers', 'Statistics', 'Wallet'].map((text, index) => (
                     <ListItem button key={text} >
