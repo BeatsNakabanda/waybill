@@ -56,6 +56,7 @@ const columns: GridColDef[] = [
     width: 150,
     editable: false,
     sortable: false,
+    flex: 1
   },
   {
     field: 'date',
@@ -63,6 +64,7 @@ const columns: GridColDef[] = [
     width: 110,
     editable: false,
     sortable: false,
+    flex: 1
   },
   {
     field: 'sender',
@@ -70,6 +72,7 @@ const columns: GridColDef[] = [
     width: 130,
     editable: false,
     sortable: false,
+    flex: 1
   },
   {
     field: 'origin',
@@ -77,24 +80,28 @@ const columns: GridColDef[] = [
     width: 190,
     editable: false,
     sortable: false,
+    flex: 1
   },
   {
     field: 'destination',
     headerName: 'Destination',
     sortable: false,
     width: 190,
+    flex: 1
   },
   {
     field: 'driver',
     headerName: 'Driver',
     sortable: false,
     width: 160,
+    flex: 1
   },
   {
     field: 'status',
     headerName: 'Status',
     sortable: false,
     width: 150,
+    flex: 1,
     renderCell: (params) => (
       <>
         {setStatus(params.getValue(params.id, 'status'))}
@@ -105,7 +112,7 @@ const columns: GridColDef[] = [
     field: 'action',
     headerName: 'Action',
     sortable: false,
-    width: 100,
+    width: 90,
     renderCell: () => (
       <MoreVertIcon sx={{color:'#d9d9d9', cursor: 'pointer'}} />
     )
