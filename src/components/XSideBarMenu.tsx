@@ -1,5 +1,8 @@
+import * as React from 'react';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import Box from "@mui/material/Box";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,8 +16,34 @@ import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalance
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { makeStyles } from '@mui/styles';
+import { useState } from "react";
 
 const useStyles = makeStyles({
+    root: {
+        "&$selected": {
+            color: '#0044FF',
+            backgroundColor: '#f4f5fb',
+            borderRight: '5px solid #0044FF',
+            '& .MuiSvgIcon-root': {
+                color: '#0044FF',
+            },
+            '& .MuiTypography-root': {
+                color: '#0044FF'
+            }
+        },
+        "&$selected:hover": {
+            color: '#0044FF',
+            backgroundColor: '#f4f5fb',
+            borderRight: '5px solid #0044FF',
+            '& .MuiSvgIcon-root': {
+                color: '#0044FF',
+            },
+            '& .MuiTypography-root': {
+                color: '#0044FF'
+            }
+        },
+
+    },
     header: {
         fontSize: '30px',
         fontStyle: 'italic',
@@ -42,11 +71,16 @@ const useStyles = makeStyles({
 });
 const XSideBarMenu = () => {
     const classes = useStyles();
+    const [selectedIndex, setSelectedIndex] = useState(1);
+
+    const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+        setSelectedIndex(index);
+    };
 
     const addIcon = (id: number) => {
         switch (id) {
             case 0:
-                return <DashboardOutlinedIcon  />
+                return <DashboardOutlinedIcon />
             case 1:
                 return <PaddingOutlinedIcon />
             case 2:
@@ -63,30 +97,94 @@ const XSideBarMenu = () => {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             <Toolbar >
-            <h1 className={classes.header}>waybill</h1>
+                <h1 className={classes.header}>waybill</h1>
             </Toolbar>
             <List>
-                {['Overview', 'Shipments', 'Tracking', 'Drivers', 'Statistics', 'Wallet'].map((text, index) => (
-                    <ListItem  button key={text} >
-                        <ListItemIcon className={classes.icon}>
-                            {addIcon(index)}
-                        </ListItemIcon>
-                        <ListItemText className={classes.text} primary={text} />
-                    </ListItem>
-                ))}
+                <ListItemButton
+                    selected={selectedIndex === 1}
+                    onClick={(event) => handleListItemClick(event, 1)}
+                >
+                    <ListItemIcon>
+                        <DashboardOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Overview" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 2}
+                    onClick={(event) => handleListItemClick(event, 2)}
+                >
+                    <ListItemIcon>
+                        <PaddingOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Shipments" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 3}
+                    onClick={(event) => handleListItemClick(event, 3)}
+                >
+                    <ListItemIcon>
+                        <LocationOnOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Tracking" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 4}
+                    onClick={(event) => handleListItemClick(event, 4)}
+                >
+                    <ListItemIcon>
+                        <GroupsOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Drivers" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 5}
+                    onClick={(event) => handleListItemClick(event, 5)}
+                >
+                    <ListItemIcon>
+                        <ShowChartOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Statistics" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 6}
+                    onClick={(event) => handleListItemClick(event, 6)}
+                >
+                    <ListItemIcon>
+                        <AccountBalanceWalletOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Wallet" />
+                </ListItemButton>
             </List>
-            <Divider sx={{ mb: '30px', mt: '30px'}} />
+            <Divider sx={{ mb: '30px', mt: '30px' }} />
             <List>
-                {['Help & Support', 'Logout'].map((text, index) => (
+            <ListItemButton
+                    selected={selectedIndex === 7}
+                    onClick={(event) => handleListItemClick(event, 7)}
+                >
+                    <ListItemIcon>
+                        <HelpOutlineOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Help & Support" />
+                </ListItemButton>
+                <ListItemButton
+                    selected={selectedIndex === 8}
+                    onClick={(event) => handleListItemClick(event, 8)}
+                >
+                    <ListItemIcon>
+                        <LogoutOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Logout" />
+                </ListItemButton>
+                {/* {['Help & Support', 'Logout'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>
                             {index % 2 === 0 ? <HelpOutlineOutlinedIcon /> : <LogoutOutlinedIcon />}
                         </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
-                ))}
+                ))} */}
             </List>
         </div>
     )

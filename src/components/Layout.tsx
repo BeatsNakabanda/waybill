@@ -44,10 +44,10 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
-    
+
     '& .MuiInputBase-input': {
         // height: '1.9em',
-        
+
         //   padding: theme.spacing(1, 1, 1, 0),
         paddingLeft: '45px',
         //   vertical padding + font size from searchIcon
@@ -83,9 +83,20 @@ const useStyles = makeStyles({
                 color: '#9e9fae'
             }
         },
+        '& .Mui-selected': {
+            color: '#0044FF',
+            backgroundColor: '#f4f5fb',
+            borderRight: '5px solid #0044FF',
+            '& .MuiSvgIcon-root': {
+                color: '#0044FF',
+            },
+            '& .MuiTypography-root': {
+                color: '#0044FF'
+            }
+        },
         '& .MuiDrawer-paper': {
             borderRight: 'none',
-        }
+        },
     },
     profile: {
         float: 'right',
@@ -157,7 +168,7 @@ function Layout(props: any) {
                         <Menu />
                     </IconButton>
                     <Grid container >
-                        <Grid item sx={{width: '35%'}}>
+                        <Grid item sx={{ width: '35%' }}>
                             {/* <InputBase placeholder="Search" /> */}
                             <Search>
                                 <SearchIconWrapper>
