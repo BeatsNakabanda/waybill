@@ -2,7 +2,10 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
+import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@mui/icons-material/Check';
 import CardContent from "@mui/material/CardContent";
+import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 import { makeStyles } from "@mui/styles";
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 
@@ -83,11 +86,11 @@ const XCard = () => {
             case 1:
                 return <Avatar sx={{ bgcolor: '#e6f0ff' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon1} /></Avatar>
             case 2:
-                return <Avatar sx={{ bgcolor: '#fff5e6' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon2} /></Avatar>
+                return <Avatar sx={{ bgcolor: '#fff5e6' }} aria-label="recipe"><HourglassTopIcon className={classes.icon2} /></Avatar>
             case 3:
-                return <Avatar sx={{ bgcolor: '#ecf8f2' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon3} /></Avatar>
+                return <Avatar sx={{ bgcolor: '#ecf8f2' }} aria-label="recipe"><CheckIcon className={classes.icon3} /></Avatar>
             case 4:
-                return <Avatar sx={{ bgcolor: '#ffe6e6' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon4} /></Avatar>
+                return <Avatar sx={{ bgcolor: '#ffe6e6' }} aria-label="recipe"><CloseIcon className={classes.icon4} /></Avatar>
             default:
                 return <Avatar sx={{ bgcolor: '#cce0ff' }} aria-label="recipe"><ShoppingBasketOutlinedIcon className={classes.icon1} /></Avatar>
         }

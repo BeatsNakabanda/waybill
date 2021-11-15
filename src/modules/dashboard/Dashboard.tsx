@@ -8,6 +8,22 @@ import useFetch from "../useFetch";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const useStyles = makeStyles({
+  root: {
+    '& .MuiDataGrid-columnHeaderTitle': {
+      fontSize: '16px',
+      fontWeight: 0,
+    },
+    '& .MuiDataGrid-root .MuiDataGrid-columnHeaderTitle': {
+      // fontWeight: 0,
+      // backgroundColor: 'darksalmon'
+    }
+    // '& .data-grid--header': {
+    //   fontSize: '16px',
+    //   fontWeight: 'bold',
+      
+    //   // backgroundColor: '#293370',
+    // }
+  },
   cards: {
     display: 'flex',
     flexDirection: 'row',
@@ -23,8 +39,9 @@ const useStyles = makeStyles({
   },
   dataGrid: {
     '& .MuiDataGrid-columnHeaderWrapper': {
+      fontWeight: 'bolder',
       '& .MuiDataGrid-iconSeparator': {
-        height: '0px'
+        height: '0px',
       }
     },
     // '& .MuiDataGrid-row.Mui-odd': {
@@ -39,13 +56,13 @@ const useStyles = makeStyles({
 const setStatus = (GridCellValue: any) => {
   switch (GridCellValue) {
     case "Delivered":
-      return <p style={{ backgroundColor: '#ecf8f2', color: '#006622', borderRadius:'10px', lineHeight: '30px', paddingLeft: '5px', paddingRight: '5px'}}>Delivered</p>
+      return <p style={{ backgroundColor: '#ecf8f2', color: '#006622', borderRadius:'10px', lineHeight: '0px', padding: '18px' }}>Delivered</p>
     case "In progress":
-      return <p style={{ backgroundColor: '#fff5e6', color: '#e68a00', borderRadius:'10px', lineHeight: '30px', paddingLeft: '5px', paddingRight: '5px'}}>In progress</p>
+      return <p style={{ backgroundColor: '#fff5e6', color: '#e68a00', borderRadius:'10px', lineHeight: '0px', padding: '18px' }}>In progress</p>
     case "Failed":
-      return <p style={{ backgroundColor: '#ffe6e6', color: '#b30000', borderRadius:'10px', lineHeight: '30px', paddingLeft: '5px', paddingRight: '5px'}}>Failed</p>
+      return <p style={{ backgroundColor: '#ffe6e6', color: '#b30000', borderRadius:'10px', lineHeight: '0px', padding: '18px' }}>Failed</p>
     default:
-      return <p style={{ backgroundColor: '#fff5e6', color: 'orange', borderRadius:'10px', lineHeight: '30px', paddingLeft: '5px', paddingRight: '5px'}}>Pending</p>
+      return <p style={{ backgroundColor: '#fff5e6', color: 'orange', borderRadius:'10px', lineHeight: '0px', padding: '18px' }}>Pending</p>
   }
 }
 
@@ -54,6 +71,7 @@ const columns: GridColDef[] = [
     field: 'trackingId',
     headerName: 'Tracking ID',
     width: 150,
+    // headerClassName: 'data-grid--header',
     editable: false,
     sortable: false,
     flex: 1
@@ -111,6 +129,7 @@ const columns: GridColDef[] = [
   {
     field: 'action',
     headerName: 'Action',
+    // align: 'center',
     sortable: false,
     width: 90,
     renderCell: () => (
@@ -124,18 +143,18 @@ const Dashboard = () => {
   const { shipmentData, isLoading, isError } = useFetch("/shipments");
 
   return (
-    <div>
+    <div className={classes.root}>
       <Toolbar />
       <Box className={classes.section}>
         <h2 className={classes.title}>Overview</h2>
-        <XSelectForm />
+        <XSelectForm value='40'/>
       </Box>
       <Box className={classes.cards}>
         <XCard />
       </Box>
       <Box className={classes.section}>
         <h2 className={classes.title}>Recent Shipments</h2>
-        <XSelectForm />
+        <XSelectForm value='10' />
       </Box>
 
       <div style={{ height: 400, width: '100%', paddingTop: '10px' }}>
@@ -145,7 +164,6 @@ const Dashboard = () => {
             style={{
               backgroundColor: '#fff',
               height: 500,
-              // width: '100%',
               border: 0,
               borderRadius: '10px',
               padding: '30px',

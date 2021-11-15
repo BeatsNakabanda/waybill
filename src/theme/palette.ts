@@ -9,7 +9,9 @@ const palette={
     text: {
         primary: '#293370',
         secondary: '#878792'
-        // secondary: '#4d4d4d'
+    },
+    text1: {
+        primary: '#babbc5'
     },
     background: {
         default: '#f4f5fb'

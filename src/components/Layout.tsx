@@ -14,7 +14,8 @@ import XSideBarMenu from './XSideBarMenu';
 const Search = styled('div')(() => ({
     position: 'relative',
     borderRadius: '5px',
-    marginTop: '5px',
+    margin: '5px',
+    height: '80%',
     backgroundColor: '#f4f5fb',
     '&:hover': {
         //   backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -22,7 +23,7 @@ const Search = styled('div')(() => ({
     // marginRight: '16px',
     // marginRight: theme.spacing(5),
     marginLeft: 0,
-    width: '100%',
+    width: '80%',
     // [theme.breakpoints.up('sm')]: {
     //     marginLeft: theme.spacing(3),
     //     width: 'auto',
@@ -43,13 +44,16 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
+    
     '& .MuiInputBase-input': {
+        // height: '1.9em',
+        
         //   padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: '32px',
+        paddingLeft: '45px',
         //   vertical padding + font size from searchIcon
         //   paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         //   transition: theme.transitions.create('width'),
-        width: '100%',
+        // width: '100%',
         //   [theme.breakpoints.up('md')]: {
         //     width: '20ch',
         //   },
@@ -72,6 +76,12 @@ const useStyles = makeStyles({
                     color: '#0044FF'
                 }
             },
+            '& .MuiSvgIcon-root': {
+                color: '#9e9fae'
+            },
+            '& .MuiTypography-root': {
+                color: '#9e9fae'
+            }
         },
         '& .MuiDrawer-paper': {
             borderRight: 'none',
@@ -92,7 +102,8 @@ const useStyles = makeStyles({
         fontSize: 'larger'
     },
     icon: {
-        marginRight: '20px'
+        marginRight: '40px',
+        cursor: 'pointer'
     },
     name: {
         fontStyle: 'bold',
@@ -145,8 +156,8 @@ function Layout(props: any) {
                     >
                         <Menu />
                     </IconButton>
-                    <Grid container>
-                        <Grid item>
+                    <Grid container >
+                        <Grid item sx={{width: '35%'}}>
                             {/* <InputBase placeholder="Search" /> */}
                             <Search>
                                 <SearchIconWrapper>
@@ -205,11 +216,11 @@ function Layout(props: any) {
             </Box>
             <Box
                 component="main"
-                sx={{ 
-                    flexGrow: 1, 
-                    pt: 0, 
-                    pl: 3, 
-                    pr: 3, 
+                sx={{
+                    flexGrow: 1,
+                    pt: 0,
+                    pl: 3,
+                    pr: 3,
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}

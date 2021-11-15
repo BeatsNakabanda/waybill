@@ -25,7 +25,7 @@ const typography: TypographyOptions = {
     },
     h4: {
         color: palette.text.primary,
-        fontWeight: 500,
+        fontWeight: 'bold',
         fontSize: '20px',
         letterSpacing: '-0.06px',
         lineHeight: '24px'
@@ -51,7 +51,8 @@ const typography: TypographyOptions = {
         lineHeight: '25px'
     },
     subtitle2: {
-        color: palette.text.secondary,
+        // color: palette.text.secondary,
+        color: palette.text1.primary,
         fontWeight: 400,
         fontSize: '14px',
         letterSpacing: '-0.05px',

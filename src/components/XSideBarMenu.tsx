@@ -21,7 +21,24 @@ const useStyles = makeStyles({
     },
     icon: {
         minWidth: '10%',
+        // color: '#f1f1f3'
     },
+    text: {
+        color: '#e3e4e8',
+    },
+    active: {
+        '&:hover': {
+            color: '#0044FF',
+            backgroundColor: '#f4f5fb',
+            borderRight: '5px solid #0044FF',
+            '& .MuiSvgIcon-root': {
+                color: '#0044FF',
+            },
+            '& .MuiTypography-root': {
+                color: '#0044FF'
+            }
+        },
+    }
 });
 const XSideBarMenu = () => {
     const classes = useStyles();
@@ -52,15 +69,15 @@ const XSideBarMenu = () => {
             </Toolbar>
             <List>
                 {['Overview', 'Shipments', 'Tracking', 'Drivers', 'Statistics', 'Wallet'].map((text, index) => (
-                    <ListItem button key={text} >
-                        <ListItemIcon className={classes.icon} >
+                    <ListItem  button key={text} >
+                        <ListItemIcon className={classes.icon}>
                             {addIcon(index)}
                         </ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText className={classes.text} primary={text} />
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            <Divider sx={{ mb: '30px', mt: '30px'}} />
             <List>
                 {['Help & Support', 'Logout'].map((text, index) => (
                     <ListItem button key={text}>

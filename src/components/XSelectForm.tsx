@@ -1,5 +1,5 @@
 import FormControl from "@mui/material/FormControl";
-import { makeStyles, styled } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
@@ -13,16 +13,16 @@ const useStyles = makeStyles({
     }
 })
 
-const XSelectForm = () => {
+const XSelectForm = ({value}: { value: string }) => {
     const classes = useStyles();
-    const [period, setPeriod] = useState('');
+    const [period, setPeriod] = useState(value);
 
     const handleChange = (event: SelectChangeEvent) => {
         setPeriod(event.target.value as string);
     };
 
     return (
-        <FormControl sx={{ml: 3, p: 1}} variant="standard" className={classes.root}>
+        <FormControl sx={{ ml: 3, p: 1 }} variant="standard" className={classes.root}>
             <Select
                 value={period}
                 onChange={handleChange}
@@ -30,9 +30,6 @@ const XSelectForm = () => {
                 disableUnderline
                 inputProps={{ 'aria-label': 'Without label' }}
             >
-                <MenuItem value="">
-                    None
-                </MenuItem>
                 <MenuItem value={10}>This week</MenuItem>
                 <MenuItem value={20}>Last week</MenuItem>
                 <MenuItem value={30}>Next week</MenuItem>
