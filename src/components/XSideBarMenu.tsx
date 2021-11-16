@@ -1,7 +1,5 @@
 import * as React from 'react';
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Box from "@mui/material/Box";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
@@ -20,27 +18,49 @@ import { useState } from "react";
 
 const useStyles = makeStyles({
     root: {
-        "&$selected": {
+        '& .MuiButtonBase-root': {
+            marginTop: '10px',
+            '&:hover': {
+                color: '#0044FF',
+                backgroundColor: '#f4f5fb',
+                borderRight: '5px solid #0044FF',
+                '& .MuiSvgIcon-root': {
+                    color: '#0044FF',
+                },
+                '& .MuiListItemText-primary': {
+                    color: '#0044FF'
+                }
+            },
+            '& .MuiSvgIcon-root': {
+                color: '#9e9fae'
+            },
+            '& .MuiTypography-root': {
+                color: '#9e9fae'
+            }
+        },
+        '& .css-1ltavsv.Mui-selected': {
             color: '#0044FF',
             backgroundColor: '#f4f5fb',
-            borderRight: '5px solid #0044FF',
             '& .MuiSvgIcon-root': {
                 color: '#0044FF',
             },
-            '& .MuiTypography-root': {
+            '& .MuiListItemText-primary': {
                 color: '#0044FF'
             }
         },
-        "&$selected:hover": {
+        '& .Mui-selected': {
             color: '#0044FF',
             backgroundColor: '#f4f5fb',
             borderRight: '5px solid #0044FF',
             '& .MuiSvgIcon-root': {
                 color: '#0044FF',
             },
-            '& .MuiTypography-root': {
+            '& .MuiListItemText-primary': {
                 color: '#0044FF'
             }
+        },
+        '& .MuiDrawer-paper': {
+            borderRight: 'none',
         },
 
     },
@@ -55,19 +75,6 @@ const useStyles = makeStyles({
     text: {
         color: '#e3e4e8',
     },
-    active: {
-        '&:hover': {
-            color: '#0044FF',
-            backgroundColor: '#f4f5fb',
-            borderRight: '5px solid #0044FF',
-            '& .MuiSvgIcon-root': {
-                color: '#0044FF',
-            },
-            '& .MuiTypography-root': {
-                color: '#0044FF'
-            }
-        },
-    }
 });
 const XSideBarMenu = () => {
     const classes = useStyles();
@@ -76,25 +83,6 @@ const XSideBarMenu = () => {
     const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
         setSelectedIndex(index);
     };
-
-    const addIcon = (id: number) => {
-        switch (id) {
-            case 0:
-                return <DashboardOutlinedIcon />
-            case 1:
-                return <PaddingOutlinedIcon />
-            case 2:
-                return <LocationOnOutlinedIcon />
-            case 3:
-                return <GroupsOutlinedIcon />
-            case 4:
-                return <ShowChartOutlinedIcon />
-            case 5:
-                return <AccountBalanceWalletOutlinedIcon />
-            default:
-                return <AccountBalanceWalletOutlinedIcon />
-        }
-    }
 
     return (
         <div className={classes.root}>
@@ -106,7 +94,7 @@ const XSideBarMenu = () => {
                     selected={selectedIndex === 1}
                     onClick={(event) => handleListItemClick(event, 1)}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon >
                         <DashboardOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText primary="Overview" />
@@ -159,7 +147,7 @@ const XSideBarMenu = () => {
             </List>
             <Divider sx={{ mb: '30px', mt: '30px' }} />
             <List>
-            <ListItemButton
+                <ListItemButton
                     selected={selectedIndex === 7}
                     onClick={(event) => handleListItemClick(event, 7)}
                 >

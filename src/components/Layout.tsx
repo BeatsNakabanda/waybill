@@ -62,27 +62,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const useStyles = makeStyles({
     root: {
-        display: 'flex',
-        '& .MuiListItem-root': {
-            marginTop: '10px',
-            '&:hover': {
-                color: '#0044FF',
-                backgroundColor: '#f4f5fb',
-                borderRight: '5px solid #0044FF',
-                '& .MuiSvgIcon-root': {
-                    color: '#0044FF',
-                },
-                '& .MuiTypography-root': {
-                    color: '#0044FF'
-                }
-            },
-            '& .MuiSvgIcon-root': {
-                color: '#9e9fae'
-            },
-            '& .MuiTypography-root': {
-                color: '#9e9fae'
-            }
-        },
         '& .Mui-selected': {
             color: '#0044FF',
             backgroundColor: '#f4f5fb',
@@ -90,13 +69,14 @@ const useStyles = makeStyles({
             '& .MuiSvgIcon-root': {
                 color: '#0044FF',
             },
-            '& .MuiTypography-root': {
+            '& .MuiListItemText-primary': {
                 color: '#0044FF'
             }
         },
         '& .MuiDrawer-paper': {
             borderRight: 'none',
         },
+       
     },
     profile: {
         float: 'right',
