@@ -11,25 +11,9 @@ import useFetch from "../useFetch";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react";
 import React from "react";
-import { Console } from "console";
-
 
 const useStyles = makeStyles({
   root: {
-    // '& .MuiDataGrid-columnHeaderTitle': {
-    //   fontSize: '16px',
-    //   fontWeight: 0,
-    // },
-    // '& .MuiDataGrid-root .MuiDataGrid-columnHeaderTitle': {
-    //   // fontWeight: 0,
-    //   // backgroundColor: 'darksalmon'
-    // }
-    // // '& .data-grid--header': {
-    // //   fontSize: '16px',
-    // //   fontWeight: 'bold',
-
-    // //   // backgroundColor: '#293370',
-    // // }
   },
   cards: {
     display: 'flex',
@@ -46,6 +30,11 @@ const useStyles = makeStyles({
   },
   dataGridHeader: {
     fontWeight: 'bold',
+  },
+  menu: {
+    '& .MuiPaper-root': {
+      boxShadow: '0 2px 4px 0 rgba(0,0,0,0.05)'
+  }
   }
 
 })
@@ -66,7 +55,6 @@ const setStatus = (GridCellValue: any) => {
 
 const options = [
   'View Details',
-  'Delete',
 ];
 
 const Dashboard = () => {
@@ -157,19 +145,21 @@ const Dashboard = () => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreVertIcon sx={{color:'#d9d9d9', cursor: 'pointer'}} />
+        <MoreVertIcon sx={{color:'#9e9fae', cursor: 'pointer'}} />
         </IconButton>
-  
         <Menu
         id="long-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        elevation={2}
+        className={classes.menu}
         MenuListProps={{
           'aria-labelledby': 'long-button',
-        }}>
+        }}
+        >
         {options.map((option) => (
-          <MenuItem key={option} selected={option === 'View Details'} onClick={handleClose}>
+          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
             {option}
           </MenuItem>
         ))}

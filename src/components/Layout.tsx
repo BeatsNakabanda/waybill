@@ -68,7 +68,7 @@ const useStyles = makeStyles({
         },
         '& .MuiDataGrid-iconSeparator': {
             display: 'none',
-        }
+        },
     },
     profile: {
         float: 'right',
