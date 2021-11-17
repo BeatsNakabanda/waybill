@@ -16,20 +16,20 @@ import { Console } from "console";
 
 const useStyles = makeStyles({
   root: {
-    '& .MuiDataGrid-columnHeaderTitle': {
-      fontSize: '16px',
-      fontWeight: 0,
-    },
-    '& .MuiDataGrid-root .MuiDataGrid-columnHeaderTitle': {
-      // fontWeight: 0,
-      // backgroundColor: 'darksalmon'
-    }
-    // '& .data-grid--header': {
+    // '& .MuiDataGrid-columnHeaderTitle': {
     //   fontSize: '16px',
-    //   fontWeight: 'bold',
-
-    //   // backgroundColor: '#293370',
+    //   fontWeight: 0,
+    // },
+    // '& .MuiDataGrid-root .MuiDataGrid-columnHeaderTitle': {
+    //   // fontWeight: 0,
+    //   // backgroundColor: 'darksalmon'
     // }
+    // // '& .data-grid--header': {
+    // //   fontSize: '16px',
+    // //   fontWeight: 'bold',
+
+    // //   // backgroundColor: '#293370',
+    // // }
   },
   cards: {
     display: 'flex',
@@ -44,13 +44,8 @@ const useStyles = makeStyles({
     display: 'flex',
     marginTop: '20px'
   },
-  dataGrid: {
-    '& .MuiDataGrid-columnHeaderWrapper': {
-      fontWeight: 'bolder',
-      '& .MuiDataGrid-iconSeparator': {
-        height: '0px',
-      }
-    },
+  dataGridHeader: {
+    fontWeight: 'bold',
   }
 
 })
@@ -94,7 +89,7 @@ const Dashboard = () => {
       // headerClassName: 'data-grid--header',
       editable: false,
       sortable: false,
-      flex: 1
+      flex: 1,
     },
     {
       field: 'date',
@@ -202,14 +197,12 @@ const Dashboard = () => {
       <div style={{ height: 400, width: '100%', paddingTop: '10px' }}>
         {shipmentData && (
           <DataGrid
-            className={classes.dataGrid}
             style={{
               backgroundColor: '#fff',
               height: 500,
               border: 0,
               borderRadius: '10px',
               padding: '30px',
-              fontStyle: 'bold',
             }}
             rowHeight={70}
             rows={shipmentData}

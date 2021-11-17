@@ -62,21 +62,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const useStyles = makeStyles({
     root: {
-        '& .Mui-selected': {
-            color: '#0044FF',
-            backgroundColor: '#f4f5fb',
-            borderRight: '5px solid #0044FF',
-            '& .MuiSvgIcon-root': {
-                color: '#0044FF',
-            },
-            '& .MuiListItemText-primary': {
-                color: '#0044FF'
-            }
+        '& .MuiDataGrid-columnHeaderWrapper': {
+            fontWeight: 'bold',
+            color: 'black'
         },
-        '& .MuiDrawer-paper': {
-            borderRight: 'none',
-        },
-       
+        '& .MuiDataGrid-iconSeparator': {
+            display: 'none',
+        }
     },
     profile: {
         float: 'right',
