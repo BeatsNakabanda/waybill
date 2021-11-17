@@ -11,7 +11,7 @@ const palette={
         secondary: '#878792'
     },
     text1: {
-        primary: '#babbc5'
+        primary: '#9091a2'
     },
     background: {
         default: '#f4f5fb'

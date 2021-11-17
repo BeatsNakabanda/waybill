@@ -82,10 +82,10 @@ const useStyles = makeStyles({
                 }
             },
             '& .MuiSvgIcon-root': {
-                color: '#9e9fae',
+                color: '#9091a2',
             },
             '& .MuiListItemText-primary': {
-                color: '#9e9fae'
+                color: '#9091a2'
             }
     },
 });
