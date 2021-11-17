@@ -62,9 +62,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const useStyles = makeStyles({
     root: {
-        '& .MuiDataGrid-columnHeaderWrapper': {
-            fontWeight: 'bold',
-            color: 'black'
+        '& .MuiDataGrid-columnHeaderTitle': {
+            fontWeight: 'bolder',
+            fontSize: '15px'
         },
         '& .MuiDataGrid-iconSeparator': {
             display: 'none',

@@ -184,15 +184,18 @@ const Dashboard = () => {
         <XSelectForm value='10' />
       </Box>
 
-      <div style={{ height: 400, width: '100%', paddingTop: '10px' }}>
+      <div style={{ width: '100%', paddingTop: '10px' }}>
         {shipmentData && (
           <DataGrid
             style={{
               backgroundColor: '#fff',
-              height: 500,
+              height: 450,
               border: 0,
+              fontSize: '14px',
               borderRadius: '10px',
-              padding: '30px',
+              paddingTop: '30px',
+              paddingLeft: '30px',
+              paddingRight: '30px',
             }}
             rowHeight={70}
             rows={shipmentData}
